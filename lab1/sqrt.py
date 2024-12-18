@@ -1,15 +1,19 @@
+#!/usr/bin/env python3
+import sys
 import math
 
 def main():
-	while True:
-		a = float(input("Enter a number>0: "))
-		if a>0:
-			a=math.sqrt(a)
-			with open('output.txt', 'w') as file:
-				file.write(str(a))
-				break
-		else:
-			print("Error. Enter number>0")
-				
-if __name__=="__main__":
-	main()		
+    try:
+        C = float(sys.stdin.read().strip())
+        if C < 0:
+            raise ValueError("Cannot take square root of a negative number.")
+        result = math.sqrt(C)
+        with open('output.txt', 'w') as output_file:
+            output_file.write(str(result))
+        with open('logs.txt', 'a') as log_file:
+            log_file.write(f"C = {C}, sqrt(C) = {result}\n")
+    except Exception as e:
+        print(e, file=sys.stderr)
+
+if __name__ == "__main__":
+    main()
