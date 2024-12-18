@@ -24,7 +24,7 @@ sudo chmod +x greeter.py
 
 3. Запуск в первом режиме:
 ```
-/greeter.py
+./greeter.py
 ```
 Вывод программы:
 ```
